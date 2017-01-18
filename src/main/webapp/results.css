@@ -1,0 +1,29 @@
+/*Search employee result table*/
+table.resulttable {
+    width: 50%;
+    margin: 0 auto;
+    font: 40px;
+    text-align: left;
+}
+
+table.searchtable {
+    margin: 0 auto;
+}
+
+td {
+    padding: 10px;
+}
+
+tr.displayresults td {
+    padding: 6px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+}
+
+table.searchtable {
+    margin: 0 auto;
+}
