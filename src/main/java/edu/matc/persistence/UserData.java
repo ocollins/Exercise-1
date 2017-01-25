@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.*;
 
 /**
  * Access users in the user table.
@@ -15,17 +16,18 @@ import java.util.List;
  * @author pwaite
  */
 public class UserData {
+    private final Logger logger = Logger.getLogger(this.getClass());
 
     public List<User> getAllUsers(String lastName) {
+
         List<User> users = new ArrayList<User>();
         Database database = Database.getInstance();
         Connection connection = null;
         String sql = null;
-        System.out.println("In the UserData");
+        logger.info("Testing log messages. My first log message. Hope it works!!");
 
         if (lastName.isEmpty()) {
             sql = "SELECT * FROM users";
-            System.out.println("Selecting all");
         } else{
             sql = "SELECT * FROM users WHERE last_name = '" + lastName + "'";
         }
@@ -41,9 +43,9 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
+            logger.info("SearchUser.getAllUsers()...SQL Exception: " + e);
         } catch (Exception e) {
-            System.out.println("SearchUser.getAllUsers()...Exception: " + e);
+            logger.info("SearchUser.getAllUsers()...Exception: " + e);
         }
         return users;
     }

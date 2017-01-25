@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+
 /**
  * A simple servlet to welcome the user.
  * @author pwaite
@@ -20,11 +21,14 @@ import java.io.IOException;
 )
 
 public class SearchUser extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserData userData = new UserData();
         String lastName = " ";
+
 
         //Get the user last name to search for
         if(req.getParameter("searchType") != null) {
@@ -32,6 +36,8 @@ public class SearchUser extends HttpServlet {
             req.setAttribute("usersResults", userData.getAllUsers(lastName));
 
         }
+
+
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
